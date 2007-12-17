@@ -19,7 +19,6 @@ BuildRequires: perl-ExtUtils-PkgConfig
 BuildRequires: glitz-devel
 Requires: perl-Gtk2 
 Conflicts: drakxtools < 9.1-15mdk
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This package adds perl support for GtkGLExt, an OpenGL extension to
