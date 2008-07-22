@@ -1,6 +1,6 @@
 %define module Gtk2-GLExt
 %define fmodule GLExt
-%define release %mkrel 5
+%define release %mkrel 6
 
 
 Summary: Perl module for the GtkGLExt library
