@@ -1,30 +1,34 @@
-%define module Gtk2-GLExt
+%define upstream_name    Gtk2-GLExt
+%define upstream_version 0.90
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Perl module for the GtkGLExt library
-Name:		perl-%{module}
-Version:	0.90
-Release:	%{mkrel 7}
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
-Source0:	http://downloads.sourceforge.net/sourceforge/gtk2-perl/%{module}-%{version}.tar.bz2
+Url:		http://gtk2-perl.sf.net/
+Source0:	http://downloads.sourceforge.net/sourceforge/gtk2-perl/%{upstream_name}-%{upstream_version}.tar.bz2
 Patch0:		perl-Gtk2-GLExt-0.90-build.patch
-URL:		http://gtk2-perl.sf.net/
+
+BuildRequires:	glitz-devel
 BuildRequires:	gtkglext-devel >= 1
-BuildRequires:	perl-devel 
 BuildRequires:	perl-ExtUtils-Depends 
 BuildRequires:	perl-Gtk2
 BuildRequires:	perl-ExtUtils-PkgConfig
-BuildRequires:	glitz-devel
-Requires:	perl-Gtk2 
+BuildRequires:	perl-devel 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
+
 Conflicts:	drakxtools < 9.1-15mdk
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Requires:	perl-Gtk2 
 
 %description
 This package adds perl support for GtkGLExt, an OpenGL extension to
 GTK+ 2.0 or later.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 %patch0 -p0 -b .build
 find -type d -name CVS | rm -rf 
 
@@ -48,4 +52,3 @@ rm -rf %{buildroot}
 %{_mandir}/*/*
 %{perl_vendorarch}/Gtk2/*
 %{perl_vendorarch}/auto/*
-
