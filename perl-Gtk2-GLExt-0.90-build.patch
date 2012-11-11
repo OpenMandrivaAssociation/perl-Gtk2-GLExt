@@ -1,0 +1,41 @@
+--- Makefile.PL	2004/10/29 00:18:43	1.7
++++ Makefile.PL	2008/04/20 16:16:28	1.8
+@@ -1,5 +1,5 @@
+ #
+-# $Header: /cvsroot/gtk2-perl/gtk2-perl-xs/Gtk2-GLExt/Makefile.PL,v 1.7 2004/10/29 00:18:43 rwmcfa1 Exp $
++# $Header: /cvsroot/gtk2-perl/gtk2-perl-xs/Gtk2-GLExt/Makefile.PL,v 1.8 2008/04/20 16:16:28 kaffeetisch Exp $
+ #
+ 
+ use 5.008;
+@@ -9,7 +9,7 @@
+ use ExtUtils::MakeMaker;
+ 
+ # minimum required version of dependancies we need to build
+-our %build_reqs = (
++my %build_reqs = (
+ 	'perl-ExtUtils-Depends'   => '0.2',
+ 	'perl-ExtUtils-PkgConfig' => '1.03',
+ 	'perl-Glib'               => '1.060',
+@@ -39,8 +39,10 @@
+    exit 1; # not reached
+ }
+ 
+-%pkgcfg = ExtUtils::PkgConfig->find ('gtkglext-1.0 >= '
+-				     .$build_reqs{GtkGLExt});
++my %pkgcfg = ExtUtils::PkgConfig->find ('gtkglext-1.0 >= '
++				       .$build_reqs{GtkGLExt});
++
++mkdir 'build', 0777;
+ 
+ our @xs_files = <xs/*.xs>;
+ our %pod_files = (
+@@ -48,8 +50,6 @@
+ 	Glib::MakeHelper->do_pod_files (@xs_files),
+ );
+ 
+-mkdir 'build', 0777;
+-
+ #
+ # autogeneration
+ #
+
