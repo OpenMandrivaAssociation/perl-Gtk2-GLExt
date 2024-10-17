@@ -8,7 +8,7 @@ Release:	4
 Summary:	Perl module for the GtkGLExt library
 License:	GPLv2+
 Group:		Development/GNOME and GTK+
-Url:		http://gtk2-perl.sf.net/
+Url:		https://gtk2-perl.sf.net/
 Source0:	http://downloads.sourceforge.net/sourceforge/gtk2-perl/%{upstream_name}-%{upstream_version}.tar.bz2
 Patch0:		perl-Gtk2-GLExt-0.90-build.patch
 
